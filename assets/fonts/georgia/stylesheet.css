@@ -1,0 +1,40 @@
+@font-face {
+    src: url("Georgia.ttf");
+    font-family: 'georgia';
+}
+@font-face {
+    src: url("Georgia Regular font.ttf");
+    font-family: 'georgiaRegular';
+    font-style: normal;
+    font-weight: 400;
+}
+
+@font-face {
+    src: url("georgia italic.ttf");
+    font-family: 'georgiaItalic';
+}
+
+
+@font-face {
+    src: url("georgia bold.ttf");
+    font-family: 'georgiaBold';
+}
+
+
+@font-face {
+    src: url("georgia bold italic.ttf");
+    font-family: 'georgiaBoldItalic';
+}
+
+
+
+@font-face {
+    src: url("georgiaz.ttf");
+    font-family: 'georgiaz';
+}
+
+
+@font-face {
+    src: url("georgiai.ttf");
+    font-family: 'georgiai';
+}
