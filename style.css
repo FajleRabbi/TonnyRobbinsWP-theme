@@ -405,7 +405,7 @@ ul.sub-menu li.menu-item-has-children:after {
 .blog-post-content .post_title {
     font-size: 20px;
     text-transform: uppercase;
-    font-family: proximaNovaRegular;
+    font-family: proximaNovaSemibold;
     color: #000;
     letter-spacing: 1px;
     line-height: 1.4;

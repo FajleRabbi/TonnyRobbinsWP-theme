@@ -70,12 +70,16 @@ $cat_id  = $cat_obj[ mt_rand( 0, count( $cat_obj ) - 1 ) ]->cat_ID;
 					endif;
 					?>
                 </header><!-- .entry-header -->
-                <div class="entry-footer">
-                    <?php erobbins_posted_by(); ?>
-                </div>
+
                 <?php
                     if(!is_singular()){
-                        echo '<a href="<?php the_permalink(); ?>" class="read-more">Read More</a>';
+                        echo '<a href="<?php the_permalink(); ?>" class="read-more">'.__('Read More','erobbins').'</a>';
+                    }else{
+                        ?>
+                    <div class="entry-footer">
+                        <?php erobbins_posted_by(); ?>
+                    </div>
+                <?php
                     }
                 ?>
             </div>
