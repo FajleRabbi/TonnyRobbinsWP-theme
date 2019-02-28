@@ -301,9 +301,125 @@ function erobbins_kc_addons(){
 				    'category' => 'Erobbins',
 				    'params' => array(
 					    array(
+						    'type' => 'text',
+						    'label' => __( 'Post type title.', 'erobbins' ),
+						    'name' => 'title',
+					    ),
+					    array(
+						    'name' => 'per_page',
+						    'label' => __('Number of post display.', 'erobbins'),
+						    'type' => 'number_slider',
+						    'options' => array(
+							    'min' => 0,
+							    'max' => 20,
+							    'unit' => '',
+							    'show_input' => true
+						    ),
+						    'value' => '5',
+						    'description' => __('Display number of post','erobbins')
+					    ),
+					    array(
+						    'type' => 'select',
+						    'label' => __( 'Orderby', 'erobbins' ),
+						    'name' => 'orderby',
+						    'options' => array(
+						    	'ID' => __('Post ID', 'erobbins'),
+						    	'author' => __('Author', 'erobbins'),
+						    	'title' => __('Title', 'erobbins'),
+						    	'name' => __('Post name (post slug)', 'erobbins'),
+						    	'type' => __('Post type (available since Version 4.0)', 'erobbins'),
+						    	'date' => __('Date', 'erobbins'),
+						    	'modified' => __('Last modified date', 'erobbins'),
+						    	'rand' => __('Random order', 'erobbins'),
+						    	'comment_count' => __('Number of comments', 'erobbins'),
+						    )
+					    ),
+					    array(
+						    'type' => 'select',
+						    'label' => __( 'Order', 'erobbins' ),
+						    'name' => 'order',
+						    'options' => array(
+						    	'asc' => 'ASC',
+						    	'desc' => 'DESC',
+						    )
+					    ),
+					    array(
 						    'type' => 'post_taxonomy',
 						    'label' => __( 'Post type list.', 'erobbins' ),
 						    'name' => 'post_taxonomy',
+					    ),
+					    array(
+						    'type' => 'select',
+						    'label' => __( 'Post type column layout.', 'erobbins' ),
+						    'name' => 'layout',
+						    'options' => array(
+						    	'normal_layout' => __('Normal Blog Layout', 'erobbins'),
+						    	'special_layout' => __('Special Blog Layout', 'erobbins')
+						    ),
+						    'value' => 'col-md-4',
+					    ),
+
+					    array(
+						    'type' => 'toggle',
+						    'label' => __( 'Hide category', 'erobbins' ),
+						    'name' => 'hide_category',
+						    'value' => false,
+					    ),
+					    array(
+						    'type' => 'toggle',
+						    'label' => __( 'Hide title', 'erobbins' ),
+						    'name' => 'hide_title',
+						    'value' => false,
+					    ),
+					    array(
+						    'type' => 'toggle',
+						    'label' => __( 'Hide read more button', 'erobbins' ),
+						    'name' => 'hide_read_more_button',
+						    'value' => false,
+					    ),
+				    )
+
+			    )
+
+		    )
+	    ); // End add map
+
+
+	    kc_add_map(
+		    array(
+
+			    'full_width_slider_shortcode' => array(
+
+				    'name' => __('Full width slider', 'erobbins'),
+				    'description' => __('Display full width slider', 'erobbins'),
+				    'icon' => 'kc-icon-progress',
+				    'category' => 'Erobbins',
+				    'params' => array(
+
+					    array(
+						    'type'			=> 'group',
+						    'label'			=> __('Full width slider information', 'erobbins'),
+						    'name'			=> 'full_width_slider_opt',
+						    'description'	=> __( 'Repeat this field to display full width slider.', 'erobbins' ),
+						    'options'		=> array('add_text' => __('Add new slider', 'erobbins')),
+						    'params' => array(
+
+							    array(
+								    'type' => 'text',
+								    'label' => __( 'title', 'erobbins' ),
+								    'name' => 'title',
+							    ),
+							    array(
+								    'type' => 'attach_image',
+								    'label' => __( 'image', 'erobbins' ),
+								    'name' => 'image',
+							    ),
+							    array(
+								    'type' => 'link',
+								    'label' => __( 'link', 'erobbins' ),
+								    'name' => 'link',
+							    ),
+						    ),
 					    ),
 				    )
 
