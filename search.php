@@ -10,24 +10,24 @@
 get_header();
 ?>
 
-<div class="page-header-wrap">
-	<div class="container">
-		<div class="row">
-			<div class="col-12">
-				<header class="page-header">
-					<h1 class="page-title">
-						<?php
-						/* translators: %s: search query. */
-						printf( esc_html__( 'Search Results for: %s', 'erobbins' ), '<span>' . get_search_query() . '</span>' );
-						?>
-					</h1>
-				</header><!-- .page-header -->
-			</div>
-		</div>
-	</div>
-</div>
+    <div class="page-header-wrap">
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <header class="page-header">
+                        <h1 class="page-title">
+							<?php
+							/* translators: %s: search query. */
+							printf( esc_html__( 'Search Results for: %s', 'erobbins' ), '<span>' . get_search_query() . '</span>' );
+							?>
+                        </h1>
+                    </header><!-- .page-header -->
+                </div>
+            </div>
+        </div>
+    </div>
 
-    <div id="primary" class="content-area erobbins_main_area">
+    <div id="primary" class="content-area erobbins_main_area erobbins_main_area_search_page">
         <main id="main" class="site-main">
             <div class="container">
                 <div class="row">
@@ -58,17 +58,17 @@ get_header();
 
 							endif;
 							?>
-						</div>
-					</div>
-					<div class="col-md-4 col-lg-3">
-                        <div class="erobbins-sidebar">
-                            <?php get_sidebar(); ?>
                         </div>
                     </div>
-				</div>
-			</div>
-		</main><!-- #main -->
-	</section><!-- #primary -->
+                    <div class="col-md-4 col-lg-3">
+                        <div class="erobbins-sidebar">
+							<?php get_sidebar(); ?>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main><!-- #main -->
+    </div>
 
 <?php
 // get_sidebar();

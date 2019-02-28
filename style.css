@@ -28,6 +28,10 @@ a:hover {
 a{
     color: #333333;
 }
+
+em{
+    font-family: 'georgiaItalic';
+}
 img{
     max-width: 100%;
     height: auto;
@@ -45,6 +49,7 @@ body {
 
 p{
     font-kerning: normal;
+    font-family: 'proximaNovaLight';
 }
 .post, .page{
     margin: 0;
@@ -52,6 +57,7 @@ p{
 
 strong, b {
     font-weight: 600;
+    font-family: 'proximaNovaSemibold';
 }
 
 h2.entry-title {
@@ -100,6 +106,16 @@ input[type="submit"]{
 }
 
 /*Header top*/
+
+/*logo*/
+
+.site-branding a {
+    font-family: proximaNovaBold;
+    text-transform: uppercase;
+    font-size: 24px;
+    letter-spacing: 2px;
+    color: #000;
+}
 header.site-header {
     position: fixed;
     z-index: 490;
@@ -115,6 +131,74 @@ header.site-header.hide {
     transform: translateY(-100%);
 }
 
+/*header search*/
+
+.search-box a {
+    cursor: pointer;
+}
+/*ajax search pro & boostrap modal */
+.erobbins-bootstrap-modal .modal-dialog {
+    max-width: 100%;
+    margin: 0 !important;
+    padding: 0 !important;
+    width: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+}
+
+.erobbins-bootstrap-modal .modal-content {
+    height: 100%;
+    padding: 11% 0;
+    width: 50%;
+    left: 50%;
+    transform: translateX(-50%) translateY(-50%);
+    top: 50%;
+}
+
+.erobbins-bootstrap-modal .modal-header {
+    border: none;
+    text-align: center;
+    display: block;
+}
+
+.erobbins-bootstrap-modal .modal-footer {
+    border: none;
+    display: none;
+}
+
+.erobbins-bootstrap-modal .modal-content button.close {
+    position: absolute;
+    top: 10%;
+    right: 3%;
+    height: 40px;
+    width: 40px;
+    background: #16aecf;
+    display: grid;
+    border-radius: 50%;
+    color: #fff;
+    opacity: 1;
+}
+
+.default-search label input {
+    width: 100% !important;
+    display: block;
+}
+
+.default-search label {
+    width: 100%;
+}
+
+.default-search {
+    text-align: center;
+    padding: 0 5%;
+}
+
+.default-search input[type=submit] {
+    width: 15%;
+    margin-top: 15px;
+}
 .header-top {
     background: #000000;
     padding:10px 0;
@@ -261,6 +345,7 @@ ul.sub-menu li.menu-item-has-children:after {
 /*Footer area */
 /*Footer area */
 /*Footer area */
+
 .site-footer {
     background: #000;
     padding: 80px 0;
@@ -271,37 +356,46 @@ ul.sub-menu li.menu-item-has-children:after {
     font-size: 14px;
 }
 .site-footer span.widget-title {
-    color: #1286d9;
-    font-size: 18px;
+    color: #fff;
+    font-size: 14px;
     margin-bottom: 15px;
     display: block;
-    font-weight: 600;
+    font-family: 'proximaNovaSemibold';
+    letter-spacing: 1px;
 }
 
+.single-footer .textwidget a {
+    font-size: 16px;
+    letter-spacing: 1px;
+    color: #16aecf;
+    font-family: 'proximaNovaSemibold';
+}
 .site-footer a {
     color: #fff;
-    font-weight: 300;
     margin-bottom: 10px;
     display: block;
+
 }
 
 .site-footer p {
     color: #fff;
-    font-weight: 300;
+    font-size: 14px;
 }
 
 /*copyright area*/
 .copyright-area {
-    background: #11516f;
+    background: #000;
+    border-top: 1px solid #333333;
 }
 
 .copyright-area p {
     padding: 0;
-    margin: 0;
+    margin: 0 40px;
     line-height: 50px;
-    text-align: center;
     color: #fff;
-    font-weight: 300;
+    font-size: 12px;
+    letter-spacing: 1px;
+    color: #aaa;
 }
 
 
@@ -405,7 +499,7 @@ ul.sub-menu li.menu-item-has-children:after {
 .blog-post-content .post_title {
     font-size: 20px;
     text-transform: uppercase;
-    font-family: proximaNovaSemibold;
+    font-family: 'proximaNovaSemibold';
     color: #000;
     letter-spacing: 1px;
     line-height: 1.4;
@@ -447,7 +541,7 @@ ul.sub-menu li.menu-item-has-children:after {
 
 .blog-special-post h2 {
     font-size: 46px;
-    font-family: proximaNovaSemibold;
+    font-family: 'proximaNovaSemibold';
     letter-spacing: 2px;
     font-weight: 600;
     text-transform: uppercase;
@@ -455,176 +549,181 @@ ul.sub-menu li.menu-item-has-children:after {
 
 .blog-special-post p {
 }
-/*.erobbins-sidebar a{*/
-    /*color: #333333;*/
-/*}*/
-/*!*blog sidebar widget area css*!*/
+.erobbins-sidebar {
+    margin-top: 40px;
+}
+.erobbins-sidebar a{
+    color: #333333;
+}
+/*blog sidebar widget area css*/
 
-/*.erobbins-sidebar .widget {*/
-    /*background: #f4f4f4;*/
-    /*padding: 30px;*/
-/*}*/
+.erobbins-sidebar .widget {
+    background: #f4f4f4;
+    padding: 30px;
+}
 
-/*.erobbins-sidebar .widget-title {*/
-    /*color: #336580;*/
-    /*margin-bottom: 10px;*/
-    /*display: block;*/
-    /*font-size: 20px;*/
-    /*font-weight: 500;*/
-/*}*/
-/*.erobbins-sidebar .widget ul li{*/
-    /*font-size: 14px;*/
-/*}*/
-/*.erobbins-sidebar .widget ul li a {*/
-    /*font-size: 14px;*/
-    /*font-weight: 500;*/
-    /*padding-left: 20px !important;*/
-    /*position: relative;*/
-    /*display: inline-block;*/
-/*}*/
+.erobbins-sidebar .widget-title {
+    color: #000;
+    margin-bottom: 10px;
+    display: block;
+    font-size: 16px;
+    font-family: proximaNovaRegular;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+.erobbins-sidebar .widget ul li{
+    font-size: 14px;
+}
+.erobbins-sidebar .widget ul li a {
+    font-size: 14px;
+    font-weight: 500;
+    padding-left: 20px !important;
+    position: relative;
+    display: inline-block;
+}
 
-/*.erobbins-sidebar .widget ul li a:before {*/
-    /*position: absolute;*/
-    /*content: "\f0da";*/
-    /*top: 0;*/
-    /*left: 5px;*/
-    /*font-size: 14px;*/
-    /*font-family: fontawesome;*/
-/*}*/
+.erobbins-sidebar .widget ul li a:before {
+    position: absolute;
+    content: "\f0da";
+    top: 0;
+    left: 5px;
+    font-size: 14px;
+    font-family: fontawesome;
+}
 
-/*.erobbins-sidebar .widget ul li ul {*/
-    /*margin-left: 20px;*/
-/*}*/
-
-
-/*!*calendar widgets style *!*/
-/*.calendar_wrap table,.entry-content table {*/
-    /*width: 100%;*/
-    /*border-left: 1px solid #ddd;*/
-    /*border-bottom: 1px solid #ddd;*/
-/*}*/
-
-/*.calendar_wrap table td, .calendar_wrap table th,.entry-content table td,.entry-content table th {*/
-    /*border-right: 1px solid #ddd;*/
-    /*border: 1px solid #ddd;*/
-    /*text-align: center;*/
-    /*padding: 5px;*/
-    /*font-size: 14px;*/
-/*}*/
-
-/*.calendar_wrap table thead,.entry-content table thead {*/
-    /*background: #11516f;*/
-    /*color: #fff;*/
-/*}*/
-
-/*.calendar_wrap table td a,.entry-content table tbody th a {*/
-    /*color: #11516f;*/
-    /*font-weight: 600;*/
-/*}*/
-
-/*!*widget rrs*!*/
-/*.erobbins-sidebar .widget_rss ul li a {*/
-    /*line-height: 20px !important;*/
-/*}*/
-
-/*!*widget search *!*/
-/*.erobbins-sidebar .widget_search{*/
-    /*!*background: #ddd;*!*/
-/*}*/
-
-/*.erobbins-sidebar .widget_search input {*/
-    /*width: 100%;*/
-/*}*/
-
-/*.erobbins-sidebar .widget_search label {*/
-    /*width: 100%;*/
-/*}*/
-
-/*.erobbins-sidebar .widget_search input[type=submit], .form-submit input[type=submit]{*/
-    /*background: #11516f;*/
-    /*border: none;*/
-    /*display: block;*/
-    /*line-height: 40px;*/
-    /*border-radius: 3px;*/
-    /*color: #fff;*/
-    /*font-size: 14px;*/
-    /*text-transform: uppercase;*/
-    /*font-weight: 600;*/
-    /*-webkit-transition: 0.4s;*/
-    /*-o-transition: 0.4s;*/
-    /*transition: 0.4s;*/
-/*}*/
-
-/*.widget_search input[type=submit]:hover {*/
-    /*background: #0056B3;*/
-/*}*/
-
-/*.widget_search input[type=search] {*/
-    /*border: 1px solid #c2c2c2;*/
-    /*line-height: 28px;*/
-    /*text-indent: 10px;*/
-    /*font-size: 14px;*/
-    /*border-radius: 3px;*/
-    /*padding: 5px 0;*/
-/*}*/
+.erobbins-sidebar .widget ul li ul {
+    margin-left: 20px;
+}
 
 
+/*calendar widgets style */
+.calendar_wrap table,.entry-content table {
+    width: 100%;
+    border-left: 1px solid #ddd;
+    border-bottom: 1px solid #ddd;
+}
+
+.calendar_wrap table td, .calendar_wrap table th,.entry-content table td,.entry-content table th {
+    border-right: 1px solid #ddd;
+    border: 1px solid #ddd;
+    text-align: center;
+    padding: 5px;
+    font-size: 14px;
+}
+
+.calendar_wrap table thead,.entry-content table thead {
+    background: #11516f;
+    color: #fff;
+}
+
+.calendar_wrap table td a,.entry-content table tbody th a {
+    color: #11516f;
+    font-weight: 600;
+}
+
+/*widget rrs*/
+.erobbins-sidebar .widget_rss ul li a {
+    line-height: 20px !important;
+}
+
+/*widget search */
+.erobbins-sidebar .widget_search{
+    /*background: #ddd;*/
+}
+
+.erobbins-sidebar .widget_search input {
+    width: 100%;
+}
+
+.erobbins-sidebar .widget_search label {
+    width: 100%;
+}
+
+.erobbins-sidebar .widget_search input[type=submit], .form-submit input[type=submit]{
+    background: #11516f;
+    border: none;
+    display: block;
+    line-height: 40px;
+    border-radius: 3px;
+    color: #fff;
+    font-size: 14px;
+    text-transform: uppercase;
+    font-weight: 600;
+    -webkit-transition: 0.4s;
+    -o-transition: 0.4s;
+    transition: 0.4s;
+}
+
+.widget_search input[type=submit]:hover {
+    background: #0056B3;
+}
+
+.widget_search input[type=search] {
+    border: 1px solid #c2c2c2;
+    line-height: 28px;
+    text-indent: 10px;
+    font-size: 14px;
+    border-radius: 3px;
+    padding: 5px 0;
+}
 
 
-/*!*widget image or text css*!*/
 
-/*.erobbins-sidebar .widget_text img {*/
-    /*margin-bottom: 10px;margin-top: 10px;*/
-/*}*/
 
-/*.erobbins-sidebar .widget_text p {*/
-    /*font-size: 14px;*/
-/*}*/
+/*widget image or text css*/
 
-/*!*navigation widget style*!*/
-/*.erobbins-sidebar .widget_nav_menu ul li {*/
-    /*border-bottom: 1px solid #cecece;*/
-    /*padding-bottom: 8px;*/
-    /*margin-bottom: 8px;*/
-/*}*/
+.erobbins-sidebar .widget_text img {
+    margin-bottom: 10px;margin-top: 10px;
+}
 
-/*.erobbins-sidebar .widget_nav_menu ul li a {*/
-    /*font-size: 13px;*/
-    /*padding: 0 !important;*/
-    /*transition: .3s;*/
-/*}*/
+.erobbins-sidebar .widget_text p {
+    font-size: 14px;
+}
 
-/*.erobbins-sidebar .widget_nav_menu ul li a:before {*/
-    /*display: none;*/
-/*}*/
+/*navigation widget style*/
+.erobbins-sidebar .widget_nav_menu ul li {
+    border-bottom: 1px solid #cecece;
+    padding-bottom: 8px;
+    margin-bottom: 8px;
+}
 
-/*.erobbins-sidebar .widget_nav_menu ul li a:hover {*/
-    /*color: #0097d6;*/
-/*}*/
+.erobbins-sidebar .widget_nav_menu ul li a {
+    font-size: 13px;
+    padding: 0 !important;
+    transition: .3s;
+}
 
-/*.erobbins-sidebar .widget_nav_menu ul li.current_page_item a {*/
-    /*font-weight: 600;*/
-    /*color: #11516f;*/
-    /*font-size: 14px;*/
-    /*position: relative;*/
-/*}*/
+.erobbins-sidebar .widget_nav_menu ul li a:before {
+    display: none;
+}
 
-/*.erobbins-sidebar .widget_nav_menu ul li.current_page_item a:after {*/
-    /*position: absolute;*/
-    /*content: '\f107';*/
-    /*font-family: fontawesome;*/
-    /*right: -15px;*/
-    /*top: 2px;*/
-/*}*/
-/*.erobbins-sidebar .sub-menu li {*/
-    /*border: none !important;*/
-/*}*/
+.erobbins-sidebar .widget_nav_menu ul li a:hover {
+    color: #0097d6;
+}
 
-/*.erobbins-sidebar .sub-menu > li {*/
-    /*margin: 0 0 5px 0 !important;*/
-    /*padding-left: 5px;*/
-    /*padding-bottom: 0 !important;*/
-/*}*/
+.erobbins-sidebar .widget_nav_menu ul li.current_page_item a {
+    font-weight: 600;
+    color: #11516f;
+    font-size: 14px;
+    position: relative;
+}
+
+.erobbins-sidebar .widget_nav_menu ul li.current_page_item a:after {
+    position: absolute;
+    content: '\f107';
+    font-family: fontawesome;
+    right: -15px;
+    top: 2px;
+}
+.erobbins-sidebar .sub-menu li {
+    border: none !important;
+}
+
+.erobbins-sidebar .sub-menu > li {
+    margin: 0 0 5px 0 !important;
+    padding-left: 5px;
+    padding-bottom: 0 !important;
+}
 
 
 
@@ -686,7 +785,7 @@ ul.sub-menu li.menu-item-has-children:after {
     font-size: 36px;
     color: #000;
     font-weight: 600;
-    font-family: proximaNovaSemibold;
+    font-family: 'proximaNovaSemibold';
 }
 span.byline {
     color: #aaaaaa;
@@ -750,11 +849,11 @@ span.byline {
     font-size: 16px;
     color: #000;
     font-weight: 600;
-    font-family: proximaNovaSemiBold;
+    font-family: 'proximaNovaSemiBold';
 }
 .nav-links h6{
     font-size: 14px;
-    font-family: proximaNovaLight;
+    font-family: 'proximaNovaLight';
 }
 
 .nav-links a:hover{
@@ -934,6 +1033,29 @@ span.byline {
 #comments label {
     font-weight: 600;
 }
+
+
+/*Search Page style*/
+.erobbins_main_area_search_page .erobbins_featured_image a:before {
+    display: none;
+}
+
+.erobbins_main_area_search_page .erobbins_featured_image a {
+    display: block;
+}
+
+.erobbins_main_area_search_page .erobbins_featured_image {
+    display: block;
+    margin-bottom: 40px;
+}
+
+/*404 page*/
+
+.erobbins_main_area404 {
+    height: 70vh;
+}
+
+
 
 /*blog page pagination*/
 

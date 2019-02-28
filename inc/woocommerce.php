@@ -29,7 +29,7 @@ add_action( 'after_setup_theme', 'erobbins_woocommerce_setup' );
  * @return void
  */
 function erobbins_woocommerce_scripts() {
-	wp_enqueue_style( 'erobbins-woocommerce-style', get_template_directory_uri() . '/woocommerce.css' );
+	wp_enqueue_style( 'erobbins-woocommerce-style', get_template_directory_uri() . '/woocommerce/woocommerce.css' );
 
 	$font_path   = WC()->plugin_url() . '/assets/fonts/';
 	$inline_font = '@font-face {
@@ -55,12 +55,13 @@ add_action( 'wp_enqueue_scripts', 'erobbins_woocommerce_scripts' );
  *
  * @link https://docs.woocommerce.com/document/disable-the-default-stylesheet/
  */
-add_filter( 'woocommerce_enqueue_styles', '__return_empty_array' );
+//add_filter( 'woocommerce_enqueue_styles', '__return_empty_array' );
 
 /**
  * Add 'woocommerce-active' class to the body tag.
  *
  * @param  array $classes CSS classes applied to the body tag.
+ *
  * @return array $classes modified to include 'woocommerce-active' class.
  */
 function erobbins_woocommerce_active_body_class( $classes ) {
@@ -96,7 +97,7 @@ add_filter( 'woocommerce_product_thumbnails_columns', 'erobbins_woocommerce_thum
  * @return integer products per row.
  */
 function erobbins_woocommerce_loop_columns() {
-	return 3;
+	return 4;
 }
 add_filter( 'loop_shop_columns', 'erobbins_woocommerce_loop_columns' );
 
@@ -104,12 +105,13 @@ add_filter( 'loop_shop_columns', 'erobbins_woocommerce_loop_columns' );
  * Related Products Args.
  *
  * @param array $args related products args.
+ *
  * @return array $args related products args.
  */
 function erobbins_woocommerce_related_products_args( $args ) {
 	$defaults = array(
-		'posts_per_page' => 3,
-		'columns'        => 3,
+		'posts_per_page' => 4,
+		'columns'        => 4,
 	);
 
 	$args = wp_parse_args( $defaults, $args );
@@ -118,18 +120,41 @@ function erobbins_woocommerce_related_products_args( $args ) {
 }
 add_filter( 'woocommerce_output_related_products_args', 'erobbins_woocommerce_related_products_args' );
 
+remove_action( 'woocommerce_before_shop_loop', 'woocommerce_result_count', 20 );
+remove_action( 'woocommerce_before_shop_loop', 'woocommerce_catalog_ordering', 30 );
+
+
 if ( ! function_exists( 'erobbins_woocommerce_product_columns_wrapper' ) ) {
 	/**
 	 * Product columns wrapper.
 	 *
 	 * @return  void
 	 */
+
 	function erobbins_woocommerce_product_columns_wrapper() {
+
+
+	    ?>
+        <div class="erobbins-shop-loop-wrapper">
+            <div class="container">
+                <div class="row">
+                    <div class="col-12">
+                        <div class="before-shop">
+                            <?php
+                                woocommerce_result_count();
+                                woocommerce_catalog_ordering();
+                             ?>
+                        </div>
+        <?php
+
+
+
 		$columns = erobbins_woocommerce_loop_columns();
 		echo '<div class="columns-' . absint( $columns ) . '">';
+
 	}
 }
-add_action( 'woocommerce_before_shop_loop', 'erobbins_woocommerce_product_columns_wrapper', 40 );
+add_action( 'woocommerce_before_shop_loop', 'erobbins_woocommerce_product_columns_wrapper', 9 );
 
 if ( ! function_exists( 'erobbins_woocommerce_product_columns_wrapper_close' ) ) {
 	/**
@@ -138,7 +163,7 @@ if ( ! function_exists( 'erobbins_woocommerce_product_columns_wrapper_close' ) )
 	 * @return  void
 	 */
 	function erobbins_woocommerce_product_columns_wrapper_close() {
-		echo '</div>';
+		echo '</div></div></div></div></div>';
 	}
 }
 add_action( 'woocommerce_after_shop_loop', 'erobbins_woocommerce_product_columns_wrapper_close', 40 );
@@ -146,8 +171,8 @@ add_action( 'woocommerce_after_shop_loop', 'erobbins_woocommerce_product_columns
 /**
  * Remove default WooCommerce wrapper.
  */
-remove_action( 'woocommerce_before_main_content', 'woocommerce_output_content_wrapper', 10 );
-remove_action( 'woocommerce_after_main_content', 'woocommerce_output_content_wrapper_end', 10 );
+//remove_action( 'woocommerce_before_main_content', 'woocommerce_output_content_wrapper', 10 );
+//remove_action( 'woocommerce_after_main_content', 'woocommerce_output_content_wrapper_end', 10 );
 
 if ( ! function_exists( 'erobbins_woocommerce_wrapper_before' ) ) {
 	/**
@@ -158,10 +183,42 @@ if ( ! function_exists( 'erobbins_woocommerce_wrapper_before' ) ) {
 	 * @return void
 	 */
 	function erobbins_woocommerce_wrapper_before() {
+
+		remove_action( 'woocommerce_before_main_content', 'woocommerce_output_content_wrapper', 10 );
+		remove_action( 'woocommerce_before_main_content', 'woocommerce_breadcrumb', 20 );
 		?>
 		<div id="primary" class="content-area">
 			<main id="main" class="site-main" role="main">
+                <div class="erobbins-shop-hero">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-12">
+                                <header class="woocommerce-products-header">
+                                    <?php if ( apply_filters( 'woocommerce_show_page_title', true ) ) : ?>
+                                        <h1 class="woocommerce-products-header__title page-title"><?php woocommerce_page_title(); ?></h1>
+                                    <?php endif; ?>
+
+                                    <?php
+                                    /**
+                                     * Hook: woocommerce_archive_description.
+                                     *
+                                     * @hooked woocommerce_taxonomy_archive_description - 10
+                                     * @hooked woocommerce_product_archive_description - 10
+                                     */
+                                    do_action( 'woocommerce_archive_description' );
+                                    ?>
+                                </header>
+                                <?php
+                                    if(!is_product()){
+                                        woocommerce_breadcrumb();
+                                    }
+                                 ?>
+                            </div>
+                        </div>
+                    </div>
+                </div>
 			<?php
+
 	}
 }
 add_action( 'woocommerce_before_main_content', 'erobbins_woocommerce_wrapper_before' );
@@ -188,11 +245,11 @@ add_action( 'woocommerce_after_main_content', 'erobbins_woocommerce_wrapper_afte
  *
  * You can add the WooCommerce Mini Cart to header.php like so ...
  *
-	<?php
-		if ( function_exists( 'erobbins_woocommerce_header_cart' ) ) {
-			erobbins_woocommerce_header_cart();
-		}
-	?>
+	* <?php
+		* if ( function_exists( 'erobbins_woocommerce_header_cart' ) ) {
+			* erobbins_woocommerce_header_cart();
+		* }
+	* ?>
  */
 
 if ( ! function_exists( 'erobbins_woocommerce_cart_link_fragment' ) ) {
@@ -202,6 +259,7 @@ if ( ! function_exists( 'erobbins_woocommerce_cart_link_fragment' ) ) {
 	 * Ensure cart contents update when products are added to the cart via AJAX.
 	 *
 	 * @param array $fragments Fragments to refresh via AJAX.
+	 *
 	 * @return array Fragments to refresh via AJAX.
 	 */
 	function erobbins_woocommerce_cart_link_fragment( $fragments ) {
@@ -268,3 +326,44 @@ if ( ! function_exists( 'erobbins_woocommerce_header_cart' ) ) {
 		<?php
 	}
 }
+
+function erobbins_single_product_page_sidebar_remove() {
+	if ( is_product() ) {
+		remove_action( 'woocommerce_sidebar', 'woocommerce_get_sidebar', 10 );
+	}
+}
+add_action( 'wp', 'erobbins_single_product_page_sidebar_remove' );
+
+
+
+
+
+
+function erobbins_woo_single_product_before(){
+    ?>
+        <div class="single-product-page-wrapper">
+            <div class="container">
+                <div class="row">
+                    <div class="col-12">
+    <?php
+
+}
+add_action('woocommerce_before_single_product', 'erobbins_woo_single_product_before', 15);
+
+
+//after single product page
+
+function erobbins_woo_single_product_after() {
+    ?>
+                    </div>
+                </div>
+            </div>
+        </div>
+    <?php
+}
+add_action( 'woocommerce_after_single_product', 'erobbins_woo_single_product_after', 5 );
+
+
+remove_action( 'woocommerce_before_single_product', 'wc_print_notices', 10 );
+
+

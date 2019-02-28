@@ -53,6 +53,7 @@ if (!function_exists('erobbins_setup')) :
          */
         add_theme_support('post-thumbnails');
         add_image_size('erobbins-squared-size', '370', '370', true);
+	    add_image_size('erobbins-full-width-size', '800', '350', true);
 
         // This theme uses wp_nav_menu() in one location.
         register_nav_menus(array(
@@ -137,7 +138,7 @@ function erobbins_widgets_init()
         'name' => esc_html__('Footer 1 Widgets', 'erobbins'),
         'id' => 'footer-1',
         'description' => esc_html__('Add widgets here for footer 1', 'erobbins'),
-        'before_widget' => '<div id="%1$s" class="col-3 single-footer widget %2$s">',
+        'before_widget' => '<div id="%1$s" class="col-md-3 col-sm-6 col-12 single-footer widget %2$s">',
         'after_widget' => '</div>',
         'before_title' => '<span class="widget-title">',
         'after_title' => '</span>',
@@ -146,7 +147,7 @@ function erobbins_widgets_init()
         'name' => esc_html__('Footer 2 Widgets', 'erobbins'),
         'id' => 'footer-2',
         'description' => esc_html__('Add widgets here for footer 2', 'erobbins'),
-        'before_widget' => '<div id="%1$s" class="col-3 single-footer widget %2$s">',
+        'before_widget' => '<div id="%1$s" class="col-md-3 col-sm-6 col-12 single-footer widget %2$s">',
         'after_widget' => '</div>',
         'before_title' => '<span class="widget-title">',
         'after_title' => '</span>',
@@ -155,7 +156,7 @@ function erobbins_widgets_init()
         'name' => esc_html__('Footer 3 Widgets', 'erobbins'),
         'id' => 'footer-3',
         'description' => esc_html__('Add widgets here for footer 3', 'erobbins'),
-        'before_widget' => '<div id="%1$s" class="col-3 single-footer widget %2$s">',
+        'before_widget' => '<div id="%1$s" class="col-md-3 col-sm-6 col-12 single-footer widget %2$s">',
         'after_widget' => '</div>',
         'before_title' => '<span class="widget-title">',
         'after_title' => '</span>',
@@ -164,7 +165,7 @@ function erobbins_widgets_init()
         'name' => esc_html__('Footer 4 Widgets', 'erobbins'),
         'id' => 'footer-4',
         'description' => esc_html__('Add widgets here for footer 4', 'erobbins'),
-        'before_widget' => '<div id="%1$s" class="col-3 single-footer widget %2$s">',
+        'before_widget' => '<div id="%1$s" class="col-md-3 col-sm-6 col-12 single-footer widget %2$s">',
         'after_widget' => '</div>',
         'before_title' => '<span class="widget-title">',
         'after_title' => '</span>',
@@ -186,11 +187,12 @@ function erobbins_scripts()
     wp_enqueue_style("bootstrap", get_theme_file_uri("/assets/css/bootstrap.min.css"), null, "v4.0.0");
     wp_enqueue_style("default-erobbins", get_theme_file_uri("/assets/css/default.css"), null, "1.0.0");
     wp_enqueue_style("slicknav", get_theme_file_uri("/assets/css/slicknav.min.css"), null, "4.7.0");
-    wp_enqueue_style("erobbins-responsive", get_theme_file_uri("/assets/css/responsive.css"), null, "1.0.0");
     wp_enqueue_style('erobbins-style', get_stylesheet_uri());
+	wp_enqueue_style("erobbins-responsive", get_theme_file_uri("/assets/css/responsive.css"), null, "1.0.0");
 
 
-    wp_enqueue_script("popper-js", get_theme_file_uri("/assets/js/popper.min.js"), array( "jquery" ), false, true);
+
+	wp_enqueue_script("popper-js", get_theme_file_uri("/assets/js/popper.min.js"), array( "jquery" ), false, true);
     wp_enqueue_script("bootstrap-js", get_theme_file_uri("/assets/js/bootstrap.min.js"), array( "jquery" ), "v4.0.0", true);
     wp_enqueue_script("slicknav-js", get_theme_file_uri("/assets/js/jquery.slicknav.min.js"), array( "jquery" ), false, true);
     wp_enqueue_script("active-js", get_theme_file_uri("/assets/js/active.js"), array( "jquery" ), "1.0", true);
@@ -246,3 +248,4 @@ add_filter( "get_search_form", "erobbins_search_form" );
 
 require_once get_template_directory() . '/inc/template-tags.php';
 require_once get_template_directory() . '/inc/template-functions.php';
+require_once get_template_directory() . '/inc/woocommerce.php';

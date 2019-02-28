@@ -84,6 +84,16 @@
 				'required' => false,
 			),
 			array(
+				'name'     => 'Ajax Search Lite',
+				'slug'     => 'ajax-search-lite',
+				'required' => false,
+			),
+			array(
+				'name'     => 'Woocommerce',
+				'slug'     => 'woocommerce',
+				'required' => false,
+			),
+			array(
 				'name'     => 'erobbins Toolkit',
 				'slug'     => 'erobbins-toolkit',
 				'source'   => get_stylesheet_directory() . '/lib/plugins/erobbins-toolkit.zip',

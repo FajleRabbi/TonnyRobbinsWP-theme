@@ -21,11 +21,11 @@
                 <?php
                     if(is_active_sidebar('footer-1')){
                         dynamic_sidebar('footer-1');
-                    }else if(is_active_sidebar('footer-2')){
+                    }if(is_active_sidebar('footer-2')){
 	                    dynamic_sidebar('footer-2');
-                    }else if(is_active_sidebar('footer-3')){
+                    }if(is_active_sidebar('footer-3')){
 	                    dynamic_sidebar('footer-3');
-                    }else if(is_active_sidebar('footer-4')){
+                    }if(is_active_sidebar('footer-4')){
 	                    dynamic_sidebar('footer-4');
                     }
                 ?>
@@ -39,9 +39,9 @@
          ?>
          <?php if($copyright_switcher == true) : ?>
         <div class="copyright-area">
-        	<div class="container">
+        	<div class="container-fluid">
         		<div class="row">
-        			<div class="col-12 text-center">
+        			<div class="col-12 text-left">
         				<p><?php echo esc_html( $copyright_text ); ?></p>
         			</div>
         		</div>

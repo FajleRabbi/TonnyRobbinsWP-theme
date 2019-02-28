@@ -44,7 +44,7 @@ get_header();
         <main id="main" class="site-main">
             <div class="container">
                 <div class="row">
-                    <div class="<?php if(!is_front_page()) : ?>col-md-8 col-lg-9<?php else: ?>col-md-12<?php endif; ?>">
+                    <div class="<?php if(!is_front_page() && !is_cart() && !is_checkout()) : ?>col-md-8 col-lg-9<?php else: ?>col-md-12<?php endif; ?>">
                         <?php
                         while (have_posts()) :
                             the_post();
