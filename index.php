@@ -65,7 +65,27 @@ get_header();
         </div>
     </div>
 
+    <?php else : ?>
+
+        <div class="breadcrumb-nvxt-wrapper nvxt-plugin" style="background-image: url(<?php echo get_the_post_thumbnail_url($post_id, 'full'); ?>)">
+            <div class="container">
+                <div class="row">
+                    <div class="col-12">
+                        <div class="breadcrumb-list">
+                            <?php
+                                if(function_exists('bcn_display')){
+	                                bcn_display();
+                                }
+                            ?>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
     <?php endif; ?>
+
+    <?php get_template_part( 'template-parts/blog-hero/search'); ?>
 
     <div id="primary" class="content-area erobbins_main_area">
         <main id="main" class="site-main">

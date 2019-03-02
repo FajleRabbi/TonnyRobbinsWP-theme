@@ -26,6 +26,7 @@ get_header();
             </div>
         </div>
     </div>
+    <?php get_template_part( 'template-parts/blog-hero/search'); ?>
 
     <div id="primary" class="content-area erobbins_main_area erobbins_main_area_search_page">
         <main id="main" class="site-main">

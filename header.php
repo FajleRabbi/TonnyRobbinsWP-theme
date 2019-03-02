@@ -65,13 +65,23 @@
                         </div>
                     </div>
                     <div class="col-6 text-right">
+                        <?php if(!is_user_logged_in()) : ?>
                         <div class="login">
                             <ul>
                                 <li>
-                                    <a href="#">Login</a>
+                                    <a href="<?php echo esc_url('/my-account'); ?>"><?php _e('Login', 'erobbins'); ?></a>
                                 </li>
                             </ul>
                         </div>
+                        <?php else:  ?>
+                        <div class="logged_in login">
+                            <ul>
+                                <li>
+                                    <a href="<?php echo esc_url('/my-account'); ?>"><?php _e('My Account', 'erobbins'); ?></a>
+                                </li>
+                            </ul>
+                        </div>
+                        <?php endif; ?>
                     </div>
                 </div>
             </div>
