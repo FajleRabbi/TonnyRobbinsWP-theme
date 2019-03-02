@@ -28,7 +28,13 @@
 					'add_title' => __('Add Category Icon', 'erobbins'),
 					'default' => get_template_directory_uri() . '/assets/images/icon.png'
 				),
-
+				array(
+					'id'    => 'cat_bg_image',
+					'type'  => 'image',
+					'title' => __('Category Background Image', 'erobbins'),
+					'add_title' => __('Add Category Background Image', 'erobbins'),
+					'default' => get_template_directory_uri() . '/assets/images/blog-6.jpg'
+				),
 				array(
 					'id'    => 'cat_hover_bg_color',
 					'type'  => 'color_picker',

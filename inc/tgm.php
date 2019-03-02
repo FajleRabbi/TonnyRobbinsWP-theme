@@ -79,11 +79,6 @@
 				'required' => false,
 			),
 			array(
-				'name'     => 'Search & Filter (For filter by category)',
-				'slug'     => 'search-filter',
-				'required' => false,
-			),
-			array(
 				'name'     => 'Contact Form 7',
 				'slug'     => 'contact-form-7',
 				'required' => false,
